@@ -47,6 +47,7 @@ function updateEsLintConfig() {
   const esLintFile = require("./" + fileName);
 
   // Overwrite existing value
+  // eslint-disable-next-line
   esLintFile["ignorePatterns"] = ["dist/*"];
 
   logCompletedCheck(fileName);

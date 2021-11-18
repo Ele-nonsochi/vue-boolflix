@@ -11,26 +11,26 @@
   <h1>FILM</h1>
   <ul>
   <li v-for="movie in movies" :key="movie.id">
-        <span>Title:</span> {{ movie.title }} <br />
-        <span>Original title:</span> {{ movie.original_title }} <br />
-        <span>Language:</span>
-        <img :src="require(`@/assets/img/countryFlag ${CountryFlag[movie.original_language]}`)" alt="img"/>
-        {{ movie.original_language }} <br />
-        <span>Vote:</span> {{ movie.vote_average }} <br />
-      </li>
+      <span>Title:</span> {{ movie.title }} <br />
+      <span>Original title:</span> {{ movie.original_title }} <br />
+      <span>Language:</span>
+      <!--<img :src="require(`@/assets/img/countryFlag ${CountryFlag[movie.original_language]}`)" alt="img"/>-->
+      {{ movie.original_language }} <br />
+      <span>Vote:</span> {{ movie.vote_average }} <br />
+  </li>
   </ul>
   </div> 
   <div>
-  <h1>FILM</h1>
+  <h1>SERIES TV</h1>
   <ul>
-  <li v-for="movie in movies" :key="movie.id">
-        <span>Title:</span> {{ movie.title }} <br />
-        <span>Original title:</span> {{ movie.original_title }} <br />
-        <span>Language:</span>
-        <img :src="require(`@/assets/img/countryFlag ${CountryFlag[movie.original_language]}`)" alt="img"/>
-        {{ movie.original_language }} <br />
-        <span>Vote:</span> {{ movie.vote_average }} <br />
-      </li>
+  <li v-for="serie in series" :key="serie.id">
+    <span>Title:</span> {{ serie.name }} <br />
+    <span>Original title:</span> {{ serie.original_title }} <br />
+    <span>Language:</span>
+    <img :src="require(`@/assets/img/countryFlag ${countryFlag[movie.original_language]}`)" alt="img"/>
+    {{ serie.original_language }} <br />
+    <span>Vote:</span> {{ serie.vote_average }} <br />
+  </li>
   </ul>
   </div> 
  </div>
@@ -78,21 +78,23 @@ export default {
     },
 
     searchSelection(){
-    this.searchType("/search/movie", this.choiceAdd, "movie");
-      this.searchType("/search/tv", this.choiceAdd, "movie");
-
+    this.searchType("/search/movie", this.choiceAdd, "movies");
+    this.searchType("/search/tv", this.choiceAdd, "series");
     },
+    findLang(){}
   },
    mounted() {
-   
-  }, 
-};
+  
+  },
+
+}
+
+
 </script>
 
 <style lang="scss">
 .container{
     background-color:grey;
-    height: 800px;
     .nav-bar{
         background-color:black;
         height:80px;
