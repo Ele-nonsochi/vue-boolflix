@@ -101,6 +101,9 @@ export default {
         .nav-item{
              text-align: center;
              padding-top:20px;
+             ul{
+               
+             }
         }
     }
 }
