@@ -11,6 +11,8 @@
   "dependencies": {
     "axios": "^0.24.0",
     "core-js": "^3.6.5",
+    "font-awesome": "^4.7.0",
+    "svg-country-flags": "^1.2.10",
     "vue": "^2.6.11"
   },
   "devDependencies": {
