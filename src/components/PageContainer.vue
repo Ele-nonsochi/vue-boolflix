@@ -1,5 +1,7 @@
 <template>
-  <LayoutCard></LayoutCard>
+  <div class="container_page">
+    <LayoutCard></LayoutCard>
+  </div>
 </template>
 
 <script>
@@ -14,4 +16,8 @@ export default {
 </script>
 
 <style lang="scss">
+.container_page {
+  width: 100%;
+  height: 100vh;
+}
 </style>

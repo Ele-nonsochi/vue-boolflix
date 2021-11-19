@@ -1,32 +1,38 @@
 <template>
-  <div class="container-card">
-    <h1>FILM</h1>
-    <div v-for="movie in film" :key="movie.id">
-      <img class="poster" :src="getImg(movie.poster_path)" alt="img" />
-      <div class="overlay">
-        <h5>Title: {{ movie.title }}</h5>
-        <h5 v-if="movie.title !== movie.original_path">
-          Original Title: {{ movie.original_title }}
-        </h5>
-        <span>Language : <img :src="getFlag(movie.original_language)" /></span>
-        <span
-          >Vote:
-          <i
-            v-for="(number, i) in getVote(movie.vote_average)"
-            :key="i"
-            class="fa fa-star"
-          ></i>
-          <i
-            v-for="(number, i) in 5 - getVote(movie.vote_average)"
-            :key="i"
-            class="fa fa-star-o"
-          ></i>
-        </span>
-        <h5>Plot: {{ movie.overview }}</h5>
+  <main>
+    <h2>FILM</h2>
+    <div class="wrapped">
+      <div class="card">
+        <div v-for="movie in film" :key="movie.id">
+          <img class="poster" :src="getImg(movie.poster_path)" alt="img" />
+          <div class="overlay">
+            <h5 class="title">Title: {{ movie.title }}</h5>
+            <h5 class="title" v-if="movie.title !== movie.original_path">
+              Original Title: {{ movie.original_title }}
+            </h5>
+            <span class="flag"
+              >Language : <img :src="getFlag(movie.original_language)"
+            /></span>
+            <span class="title"
+              >Vote:
+              <i
+                v-for="(number, i) in getVote(movie.vote_average)"
+                :key="i"
+                class="fa fa-star"
+              ></i>
+              <i
+                v-for="(number, i) in 5 - getVote(movie.vote_average)"
+                :key="i"
+                class="fa fa-star-o"
+              ></i>
+            </span>
+            <h5 class="overview">Plot: {{ movie.overview }}</h5>
+          </div>
+        </div>
       </div>
     </div>
 
-    <h1>SERIES TV</h1>
+    <h2>SERIES TV</h2>
     <div v-for="serie in series" :key="serie.id">
       <img class="poster" :src="getImg(serie.poster_path)" alt="img" />
       <div class="overlay">
@@ -51,7 +57,7 @@
         <h5>Plot: {{ serie.overview }}</h5>
       </div>
     </div>
-  </div>
+  </main>
 </template>
 
 
@@ -101,7 +107,5 @@ export default {
 </script>
 
 <style lang="scss">
-.container-card {
-  display: flex;
-}
+@import "@/style/card.scss";
 </style>
